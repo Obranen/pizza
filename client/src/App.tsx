@@ -1,27 +1,10 @@
 import React from 'react'
-import classes from './App.module.scss'
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import './App.module.scss'
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <Grid fluid>
-      <Row>
-        <Col xs={12} sm={3} md={6} lg={12}>
-          <div className={classes.mainStyle}>
-            Hello, world! 11111
-          </div>
-        </Col>
-        <Col xs={12} sm={3} md={6} lg={12}>
-          Hello, world!
-        </Col>
-        <Col xs={12} sm={3} md={6} lg={12}>
-          Hello, world!
-        </Col>
-        <Col xs={12} sm={3} md={6} lg={12}>
-          Hello, world!
-        </Col>
-      </Row>
-    </Grid>
+    <Header/>
   );
 }
 

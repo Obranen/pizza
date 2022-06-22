@@ -1,0 +1,10 @@
+@import "./src/utils/themes/variables.module";
+
+.header {
+  background-color: $background-default;
+  color: $primary-main;
+}
+
+.rowR {
+  text-align: right;
+}
