@@ -7,7 +7,6 @@ import Logo from './Logo/Logo';
 import Languages from './Languages/Languages';
 import Login from './Login/Login';
 import Cart from './Cart/Cart';
-import RootPage from '../../pages/RootPage/RootPage';
 
 interface IHeader {
 }
@@ -28,7 +27,7 @@ const Header: FC<IHeader> =
               </Row>
             </Col>
           </Row>
-          <RootPage/>
+          <NavBar/>
         </Grid>
       </div>
     )

@@ -1,28 +1,32 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import HomePage from '../public/HomePage/HomePage';
 import {authRoutes, publicRoutes} from '../routesPages';
-import NavBar from '../../components/Header/NavBar/NavBar';
 
-const RootPage = () => {
-    const isAuth = true
+interface IRootPage {
+  children: React.ReactNode
+}
 
-    return (
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          {isAuth && authRoutes.map(({path, Element}) =>
-            <Route key={path} path={path} element={<Element/>}/>
-          )}
+const RootPage: FC<IRootPage> = ({children}) => {
+  //false - перенаправляет на HomePage
+  const isAuth = false
 
-          {publicRoutes.map(({path, Element}) =>
-            <Route key={path} path={path} element={<Element/>}/>
-          )}
+  return (
+    <BrowserRouter>
+      {children}
+      <Routes>
+        {isAuth && authRoutes.map(({path, Element}) =>
+          <Route key={path} path={path} element={<Element/>}/>
+        )}
 
-          <Route path="*" element={<HomePage/>}/>
-        </Routes>
-      </BrowserRouter>
-    )
-  }
+        {publicRoutes.map(({path, Element}) =>
+          <Route key={path} path={path} element={<Element/>}/>
+        )}
+
+        <Route path="*" element={<HomePage/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 export default RootPage

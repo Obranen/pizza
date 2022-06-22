@@ -1,10 +1,7 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {Col} from 'react-flexbox-grid';
 
-interface ICart {}
-
-const Cart: FC<ICart> =
-  ({}) => {
+const Cart = () => {
     return (
       <Col sm={4}>
         Cart

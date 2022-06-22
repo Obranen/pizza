@@ -1,12 +1,8 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {Col} from 'react-flexbox-grid'
 import classes from './Logo.module.scss'
 
-interface ILogo {
-}
-
-const Logo: FC<ILogo> =
-  ({}) => {
+const Logo = () => {
     return (
       <Col sm={4}>
         <div className={classes.logo}>

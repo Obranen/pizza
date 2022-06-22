@@ -1,10 +1,7 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {Col} from 'react-flexbox-grid';
 
-interface ILanguages {}
-
-const Languages: FC<ILanguages> =
-  ({}) => {
+const Languages = () => {
     return (
       <Col sm={4}>
         Lang

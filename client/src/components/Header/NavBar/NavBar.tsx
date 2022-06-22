@@ -1,30 +1,29 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {Col, Row} from 'react-flexbox-grid';
 import classes from './NavBar.module.scss'
 import NavBarItem from './NavBarItem/NavBarItem';
 import {typesRoutes} from '../../../pages/typesRoutesPages';
 
-interface INavBar {
-}
+const NavBar = () => {
+    const nav = {
+      'Пицца': typesRoutes.PIZZA,
+      'Бургеры': typesRoutes.BURGERS,
+      'Сеты': typesRoutes.SETS,
+      'Напитки': typesRoutes.DRINKS,
+      'Админка': typesRoutes.ADMIN
+    }
 
-const NavBar: FC<INavBar> =
-  ({}) => {
-    const nav = [
-      {'Пицца': typesRoutes.PIZZA},
-      {'Бургеры': typesRoutes.BURGERS},
-      {'Сеты': typesRoutes.SETS},
-      {'Напитки': typesRoutes.DRINKS},
-    ]
-
-    return (
+  return (
       <Row>
         <Col sm={12} className={classes.navBar}>
-          {nav.map((itemNav, index) =>
+          {Object.keys(nav).map((navValue, index) => (
             <NavBarItem
               key={index}
-              itemNav={itemNav}
+              // @ts-ignore
+              navValue={nav[navValue]}
+              navKey={navValue}
             />
-          )}
+          ))}
         </Col>
       </Row>
     )

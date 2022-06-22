@@ -1,10 +1,7 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {Col} from 'react-flexbox-grid';
 
-interface ILogin {}
-
-const Login: FC<ILogin> =
-  ({}) => {
+const Login = () => {
     return (
       <Col sm={4}>
         Login
