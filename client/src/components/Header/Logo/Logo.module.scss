@@ -1,3 +1,97 @@
 .logo {
+  font-family: 'Rakkas', cursive;
+  text-transform: uppercase;
   text-align: center;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.word {
+  margin: auto;
+  width: 110px;
+  position: relative;
+  span {
+    display: inline-block;
+  }
+}
+
+@mixin strip-animation($name-keyframes, $size, $solid, $color, $duration, $delay, $fil-mode) {
+  @keyframes #{$name-keyframes} {
+    0% {
+      width: 0;
+      outline: $size $solid $color;
+    }
+    25% {
+      width: 100%;
+      outline: $size $solid $color;
+    }
+    100% {
+      width: 100%;
+      outline: $size $solid $color;
+    }
+  }
+  animation-name: $name-keyframes;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-fill-mode: $fil-mode;
+}
+
+.stripTop, .stripBottom {
+  @include strip-animation(strip, 1px, solid, gold, 4s, 4.8s, forwards);
+  outline: none;
+  width: 0;
+  margin: auto;
+}
+
+@mixin letter-animation($name-keyframes, $color-letter) {
+  @keyframes #{$name-keyframes} {
+    0%   {
+      transform: scale(1);
+    }
+    50%  {
+      transform: scale(1.2);
+      color: $color-letter;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin letter-color-animation($name-keyframes, $color-letter) {
+  @keyframes #{$name-keyframes} {
+    25% {
+      color: $color-letter;
+    }
+    100% {
+      color: $color-letter;
+    }
+  }
+}
+
+.letterP {
+  @include letter-animation(letterP, crimson);
+  @include letter-color-animation(color-letterP, crimson);
+  animation: letterP .7s 1s, color-letterP 4s 4.8s forwards;
+}
+
+.letterI {
+  @include letter-animation(letterI, dodgerblue);
+  @include letter-color-animation(color-letterI, dodgerblue);
+  animation: letterI .7s 1.7s, color-letterI 4s 4.8s forwards;
+}
+.letterZ1 {
+  @include letter-animation(letterZ1, orange);
+  @include letter-color-animation(color-letterZ1, orange);
+  animation: letterZ1 .7s 2.4s, color-letterZ1 4s 4.8s forwards;
+}
+.letterZ2 {
+  @include letter-animation(letterZ2, blueviolet);
+  @include letter-color-animation(color-letterZ2, blueviolet);
+  animation: letterZ2 .7s 3.1s, color-letterZ2 4s 4.8s forwards;
+}
+.letterA {
+  @include letter-animation(letterA, green);
+  @include letter-color-animation(color-letterA, green);
+  animation: letterA .7s 3.8s, color-letterA 4s 4.8s forwards;
 }
