@@ -1,13 +1,13 @@
-import React, {FC} from 'react'
-import {Col} from 'react-flexbox-grid';
+import React from 'react'
+import {Col} from 'react-flexbox-grid'
+import classes from './Contacts.module.scss'
 
-interface IContacts {}
-
-const Contacts: FC<IContacts> =
-  ({}) => {
+const Contacts = () => {
     return (
       <Col sm={4}>
-        Contacts
+        <div className={classes.contacts}>
+          Контакты
+        </div>
       </Col>
     )
   }

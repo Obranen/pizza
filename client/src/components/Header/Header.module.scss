@@ -1,10 +1,18 @@
 @import "./src/utils/themes/variables.module";
 
 .header {
-  background-color: $background-default;
+  background-color: $background-primary;
   color: $primary-main;
 }
 
-.rowR {
+.rowRight {
+  display: flex;
   text-align: right;
+  font-family: $secondary-font;
+  font-size: 20px;
+  text-transform: capitalize;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100px;
 }

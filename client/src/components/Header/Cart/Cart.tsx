@@ -1,12 +1,12 @@
 import React from 'react'
-import {Col} from 'react-flexbox-grid';
+import classes from './Cart.module.scss';
 
 const Cart = () => {
-    return (
-      <Col sm={4}>
-        Cart
-      </Col>
-    )
-  }
+  return (
+    <div className={classes.cart}>
+      Корзина
+    </div>
+  )
+}
 
 export default Cart

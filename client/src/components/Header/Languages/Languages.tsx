@@ -1,12 +1,12 @@
 import React from 'react'
-import {Col} from 'react-flexbox-grid';
+import classes from './Languages.module.scss';
 
 const Languages = () => {
-    return (
-      <Col sm={4}>
-        Lang
-      </Col>
-    )
-  }
+  return (
+    <div className={classes.lang}>
+      RU
+    </div>
+  )
+}
 
 export default Languages

@@ -9,13 +9,12 @@ const NavBar = () => {
       'Пицца': typesRoutes.PIZZA,
       'Бургеры': typesRoutes.BURGERS,
       'Сеты': typesRoutes.SETS,
-      'Напитки': typesRoutes.DRINKS,
-      'Админка': typesRoutes.ADMIN
+      'Напитки': typesRoutes.DRINKS
     }
 
   return (
       <Row>
-        <Col sm={12} className={classes.navBar}>
+        <Col smOffset={4} sm={4} className={classes.navBar}>
           {Object.keys(nav).map((navValue, index) => (
             <NavBarItem
               key={index}

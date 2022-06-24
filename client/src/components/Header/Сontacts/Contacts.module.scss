@@ -1,0 +1,10 @@
+@import "./src/utils/themes/variables.module";
+
+.contacts {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  font-family: $secondary-font;
+  font-size: 20px;
+  text-transform: capitalize;
+}

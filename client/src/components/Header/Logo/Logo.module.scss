@@ -1,15 +1,20 @@
+@import "./src/utils/themes/variables.module";
+
 .logo {
-  font-family: 'Rakkas', cursive;
+  font-family: $font;
   text-transform: uppercase;
   text-align: center;
   font-size: 40px;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  a {
+    color: $primary-main;
+  }
 }
 
 .word {
-  margin: auto;
-  width: 110px;
-  position: relative;
   span {
     display: inline-block;
   }
@@ -45,10 +50,10 @@
 
 @mixin letter-animation($name-keyframes, $color-letter) {
   @keyframes #{$name-keyframes} {
-    0%   {
+    0% {
       transform: scale(1);
     }
-    50%  {
+    50% {
       transform: scale(1.2);
       color: $color-letter;
     }
@@ -69,6 +74,16 @@
   }
 }
 
+.word {
+  &:hover {
+    cursor: pointer;
+
+    .letterP, .letterI, .letterP, .letterZ1, .letterZ2, .letterA, .stripTop, .stripBottom {
+      animation-name: none;
+    }
+  }
+}
+
 .letterP {
   @include letter-animation(letterP, crimson);
   @include letter-color-animation(color-letterP, crimson);
@@ -80,16 +95,19 @@
   @include letter-color-animation(color-letterI, dodgerblue);
   animation: letterI .7s 1.7s, color-letterI 4s 4.8s forwards;
 }
+
 .letterZ1 {
   @include letter-animation(letterZ1, orange);
   @include letter-color-animation(color-letterZ1, orange);
   animation: letterZ1 .7s 2.4s, color-letterZ1 4s 4.8s forwards;
 }
+
 .letterZ2 {
   @include letter-animation(letterZ2, blueviolet);
   @include letter-color-animation(color-letterZ2, blueviolet);
   animation: letterZ2 .7s 3.1s, color-letterZ2 4s 4.8s forwards;
 }
+
 .letterA {
   @include letter-animation(letterA, green);
   @include letter-color-animation(color-letterA, green);

@@ -8,29 +8,25 @@ import Languages from './Languages/Languages';
 import Login from './Login/Login';
 import Cart from './Cart/Cart';
 
-interface IHeader {
+const Header = () => {
+  return (
+    <div className={classes.header}>
+      <Grid fluid>
+        <Row>
+          <Contacts/>
+          <Logo/>
+          <Col sm={4}>
+            <div className={classes.rowRight}>
+              <Languages/>
+              <Login/>
+              <Cart/>
+            </div>
+          </Col>
+        </Row>
+        <NavBar/>
+      </Grid>
+    </div>
+  )
 }
-
-const Header: FC<IHeader> =
-  ({}) => {
-    return (
-      <div className={classes.header}>
-        <Grid fluid>
-          <Row>
-            <Contacts/>
-            <Logo/>
-            <Col sm={4}>
-              <Row className={classes.rowR}>
-                <Languages/>
-                <Login/>
-                <Cart/>
-              </Row>
-            </Col>
-          </Row>
-          <NavBar/>
-        </Grid>
-      </div>
-    )
-  }
 
 export default Header

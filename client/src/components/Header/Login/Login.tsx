@@ -1,12 +1,12 @@
 import React from 'react'
-import {Col} from 'react-flexbox-grid';
+import classes from './Login.module.scss'
 
 const Login = () => {
-    return (
-      <Col sm={4}>
-        Login
-      </Col>
-    )
-  }
+  return (
+    <div className={classes.login}>
+      Вход
+    </div>
+  )
+}
 
 export default Login
