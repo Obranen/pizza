@@ -1,7 +1,7 @@
-// import * as UserActionCreators from './user'
 // import * as TodoActionCreators from './todo'
+// import * as CarouselActionCreators from './carouselAction'
 
 export default {
-  // ...UserActionCreators
+  // ...CarouselActionCreators
   // ...TodoActionCreators
 }

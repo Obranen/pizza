@@ -1,0 +1,58 @@
+.slider {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.arrowLeft, .arrowRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+  width: 60px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .4);
+  }
+}
+.arrowLeft {
+  left: 0;
+}
+.arrowRight {
+  right: 0;
+}
+
+.visibleItem {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  div {
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+}
+
+.item1 {
+  background-color: blue;
+}
+.item2 {
+  background-color: red;
+}
+.item3 {
+  background-color: green;
+}

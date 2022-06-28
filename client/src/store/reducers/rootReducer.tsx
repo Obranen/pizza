@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-// import {userReducer} from './userReducer';
+// import {carouselReducer} from './carouselReducer';
 
 export const rootReducer = combineReducers({
-  // user: userReducer
+  // carousel: carouselReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>
