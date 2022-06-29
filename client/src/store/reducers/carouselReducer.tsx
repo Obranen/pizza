@@ -1,48 +1,53 @@
-// import {CarouselAction, CarouselActionTypes, ICarouselState} from '../types/carousel';
-//
-// const initialState: ICarouselState = {
-//   carousel: [{
-//     imageSrc: '',
-//     imageAlt: '',
-//     linkUrl: ''
-//   }],
-//   loading: false,
-//   error: null
-// }
-//
-// export const carouselReducer = (state = initialState, action: CarouselAction): ICarouselState => {
-//   switch (action.type) {
-//     case CarouselActionTypes.FETCH_CAROUSEL:
-//       return {
-//         loading: true,
-//         error: null,
-//         carousel: [{
-//           imageSrc: '',
-//           imageAlt: '',
-//           linkUrl: ''
-//         }]
-//       }
-//     case CarouselActionTypes.FETCH_CAROUSEL_SUCCESS:
-//       return {
-//         loading: false,
-//         error: null,
-//         carousel: action.payload
-//       }
-//     default:
-//       return state
-//   }
-// }
-import React, {FC} from 'react'
+import {ICarouselState, CarouselAction, CarouselActionTypes} from '../types/carouselTypes';
 
-interface IcarouselReducer {}
+const initialState: ICarouselState = {
+  carousel: [
+    {
+      imageSrc: 'https://wallpapercave.com/wp/wp6004835.jpg',
+      imageAlt: 'фотка1',
+      linkUrl: '/'
+    },
+    {
+      imageSrc: 'https://wallpapercave.com/wp/wp6004853.jpg',
+      imageAlt: 'фотка2',
+      linkUrl: '/'
+    },
+    {
+      imageSrc: 'https://wallpapercave.com/wp/wp6004978.jpg',
+      imageAlt: 'фотка3',
+      linkUrl: '/'
+    }
+  ],
+  loading: false,
+  error: null
+}
 
-const carouselReducer: FC<IcarouselReducer> =
-  ({}) => {
-    return (
-      <>
-        <h1>sf</h1>
-      </>
-    )
+export const carouselReducer = (state = initialState, action: CarouselAction): ICarouselState => {
+  switch (action.type) {
+    // case CarouselActionTypes.FETCH_USERS:
+    //   return {
+    //     loading: true,
+    //     error: null,
+    //     carousel: []
+    //   }
+    case CarouselActionTypes.FETCH_USERS_SUCCESS:
+      return {
+        // Пример:
+        // ...state,
+        // users: state.users.concat(action.payload)
+        // users: [action.payload, ...state.users]
+        // users: [...state.users, action.payload]
+        loading: false,
+        error: null,
+        carousel: action.payload
+      }
+    // case CarouselActionTypes.FETCH_USERS_ERROR:
+    //   return {
+    //     loading: false,
+    //     error: action.payload,
+    //     carousel: []
+    //   }
+    default:
+      return state
   }
-
-export default carouselReducer
+}

@@ -1,9 +1,15 @@
+import {CarouselAction, CarouselActionTypes} from '../types/carouselTypes';
 import {Dispatch} from 'redux';
-import {CarouselAction, CarouselActionTypes} from '../types/carousel';
+// import axios from 'axios';
 
-export const fetchCarousel = () => {
-  return (dispatch: Dispatch<CarouselAction>) => {
-    dispatch({type: CarouselActionTypes.FETCH_CAROUSEL})
-    // dispatch({type: CarouselActionTypes.FETCH_CAROUSEL_SUCCESS, payload: response})
+export const fetchCarousel = (data: any) => {
+  return async  (dispatch: Dispatch<CarouselAction>) => {
+    try {
+      // dispatch({type: CarouselActionTypes.FETCH_USERS})
+      // const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+      dispatch({type: CarouselActionTypes.FETCH_USERS_SUCCESS, payload: data})
+    } catch (e) {
+      // dispatch({type: CarouselActionTypes.FETCH_USERS_ERROR, payload: 'Произошла ошибка при загрузке пользователей'})
+    }
   }
 }
