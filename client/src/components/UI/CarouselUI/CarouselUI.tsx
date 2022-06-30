@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import classes from './CarouselUI.module.scss'
 import {MdArrowBackIosNew, MdArrowForwardIos} from 'react-icons/md';
 import {Link} from 'react-router-dom';
@@ -7,12 +7,37 @@ import {useSelectorHook} from '../../../hooks/useSelectorHook';
 const CarouselUI = () => {
   const {carousel} = useSelectorHook(state => state.carouselReducer)
   const itemList = useRef<any>(null)
+  const circleList = useRef<any>(null)
   const [currentLengthList, setCurrentLengthList] = useState<number>(0)
+
+  useEffect(() => {
+    circleList.current.childNodes[0].classList.add(classes.active)
+  }, [])
 
   const lengthCarousel = () => {
     const lengthItem = +getComputedStyle(itemList.current).width.slice(0, -2)
     const totalLength = lengthItem * +(carousel.length)
     return {lengthItem, totalLength}
+  }
+
+  const styledCircleNavAtClickArrowLeft = () => {
+    if(circleList.current.querySelector('.CarouselUI_active__okCRK').previousSibling === null) {
+      circleList.current.childNodes[circleList.current.childNodes.length - 1].classList.add(classes.active)
+      circleList.current.childNodes[0].classList.remove(classes.active)
+    } else {
+      circleList.current.querySelector('.CarouselUI_active__okCRK').previousSibling.classList.add(classes.active)
+      circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling.classList.remove(classes.active)
+    }
+  }
+
+  const styledCircleNavAtClickArrowRight = () => {
+    if(circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling === null) {
+      circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+      circleList.current.childNodes[0].classList.add(classes.active)
+    } else {
+      circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling.classList.add(classes.active)
+      circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+    }
   }
 
   const arrowLeftHandler = () => {
@@ -24,6 +49,7 @@ const CarouselUI = () => {
       const currentLengthItem = +totalLength - +lengthItem
       setCurrentLengthList(-currentLengthItem)
     }
+    styledCircleNavAtClickArrowLeft()
   }
 
   const arrowRightHandler = () => {
@@ -34,6 +60,7 @@ const CarouselUI = () => {
     } else {
       setCurrentLengthList(0)
     }
+    styledCircleNavAtClickArrowRight()
   }
 
   const circleNavHandler = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -41,6 +68,9 @@ const CarouselUI = () => {
     const numberCircle = event.currentTarget.getAttribute('data-number')
     const currentLengthItem = lengthItem * Number(numberCircle)
     setCurrentLengthList(-currentLengthItem)
+
+    circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+    event.currentTarget.classList.add(classes.active)
   }
 
   return (
@@ -57,7 +87,7 @@ const CarouselUI = () => {
           )}
         </div>
       </div>
-      <div className={classes.circleWrapper}>
+      <div ref={circleList} className={classes.circleWrapper}>
         {carousel.map((item, index) =>
           <div key={index} data-number={index} onClick={circleNavHandler} className={classes.circle}></div>
         )}

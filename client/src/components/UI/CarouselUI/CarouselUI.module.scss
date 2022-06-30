@@ -15,12 +15,13 @@
   bottom: 0;
   z-index: 1;
   height: 100%;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba($primary-background, .2);
   width: 80px;
-  color: #ccc;
+  color: $primary-main;
   &:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba($primary-background, .3);
+    color: $secondary-main;
   }
 }
 .arrowLeft {
@@ -56,19 +57,22 @@
   left: 50%;
   bottom: 10px;
   z-index: 1;
-  color: #000;
   display: flex;
 }
 
 .circle {
-  border: 1px solid #ccc;
+  border: 1px solid $primary-main;
   border-radius: 50%;
   margin-left: 10px;
   cursor: pointer;
   width: 20px;
   height: 20px;
   &:hover {
-    background-color: orange;
-    border: 1px solid orange;
+    border: 1px solid $secondary-main;
   }
+}
+
+.active {
+  background-color: $secondary-main;
+  border: 1px solid $secondary-main;
 }
