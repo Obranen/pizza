@@ -11,31 +11,34 @@ const CarouselUI = () => {
   const [currentLengthList, setCurrentLengthList] = useState<number>(0)
 
   const $circleWithClassActive = () => {
-    return  circleList.current.querySelector(`.${classes.active}`)
+    return circleList.current.querySelector(`.${classes.active}`)
+  }
+
+  const firstActiveCircleNav = () => {
+    return circleList.current.childNodes[0].classList.add(classes.active)
   }
 
   useEffect(() => {
-    circleList.current.childNodes[0].classList.add(classes.active)
+    firstActiveCircleNav()
   }, [])
 
   // useEffect(() => {
   //   const time = setTimeout(() => {
-  //     $circleWithClassActive().classList.remove(classes.active)
-  //     $circleWithClassActive().nextSibling.classList.add(classes.active)
+  //     arrowRightHandler()
   //   }, 2000)
   //   return () => {
   //     clearTimeout(time);
   //   }
-  // }, [])
+  // }, [currentLengthList])
 
   const lengthCarousel = () => {
-    const lengthItem = +getComputedStyle(itemList.current).width.slice(0, -2)
+    const lengthItem = itemList.current.offsetWidth
     const totalLength = lengthItem * +(carousel.length)
     return {lengthItem, totalLength}
   }
 
   const styledCircleNavAtClickArrowLeft = () => {
-    if($circleWithClassActive().previousSibling === null) {
+    if ($circleWithClassActive().previousSibling === null) {
       circleList.current.childNodes[circleList.current.childNodes.length - 1].classList.add(classes.active)
       circleList.current.childNodes[0].classList.remove(classes.active)
     } else {
@@ -45,7 +48,7 @@ const CarouselUI = () => {
   }
 
   const styledCircleNavAtClickArrowRight = () => {
-    if($circleWithClassActive().nextSibling === null) {
+    if ($circleWithClassActive().nextSibling === null) {
       $circleWithClassActive().classList.remove(classes.active)
       circleList.current.childNodes[0].classList.add(classes.active)
     } else {
