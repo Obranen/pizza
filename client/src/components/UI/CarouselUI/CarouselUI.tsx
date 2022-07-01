@@ -10,9 +10,23 @@ const CarouselUI = () => {
   const circleList = useRef<any>(null)
   const [currentLengthList, setCurrentLengthList] = useState<number>(0)
 
+  const $circleWithClassActive = () => {
+    return  circleList.current.querySelector(`.${classes.active}`)
+  }
+
   useEffect(() => {
     circleList.current.childNodes[0].classList.add(classes.active)
   }, [])
+
+  // useEffect(() => {
+  //   const time = setTimeout(() => {
+  //     $circleWithClassActive().classList.remove(classes.active)
+  //     $circleWithClassActive().nextSibling.classList.add(classes.active)
+  //   }, 2000)
+  //   return () => {
+  //     clearTimeout(time);
+  //   }
+  // }, [])
 
   const lengthCarousel = () => {
     const lengthItem = +getComputedStyle(itemList.current).width.slice(0, -2)
@@ -21,22 +35,22 @@ const CarouselUI = () => {
   }
 
   const styledCircleNavAtClickArrowLeft = () => {
-    if(circleList.current.querySelector('.CarouselUI_active__okCRK').previousSibling === null) {
+    if($circleWithClassActive().previousSibling === null) {
       circleList.current.childNodes[circleList.current.childNodes.length - 1].classList.add(classes.active)
       circleList.current.childNodes[0].classList.remove(classes.active)
     } else {
-      circleList.current.querySelector('.CarouselUI_active__okCRK').previousSibling.classList.add(classes.active)
-      circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling.classList.remove(classes.active)
+      $circleWithClassActive().previousSibling.classList.add(classes.active)
+      $circleWithClassActive().nextSibling.classList.remove(classes.active)
     }
   }
 
   const styledCircleNavAtClickArrowRight = () => {
-    if(circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling === null) {
-      circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+    if($circleWithClassActive().nextSibling === null) {
+      $circleWithClassActive().classList.remove(classes.active)
       circleList.current.childNodes[0].classList.add(classes.active)
     } else {
-      circleList.current.querySelector('.CarouselUI_active__okCRK').nextElementSibling.classList.add(classes.active)
-      circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+      $circleWithClassActive().nextSibling.classList.add(classes.active)
+      $circleWithClassActive().classList.remove(classes.active)
     }
   }
 
@@ -69,7 +83,7 @@ const CarouselUI = () => {
     const currentLengthItem = lengthItem * Number(numberCircle)
     setCurrentLengthList(-currentLengthItem)
 
-    circleList.current.querySelector('.CarouselUI_active__okCRK').classList.remove(classes.active)
+    $circleWithClassActive().classList.remove(classes.active)
     event.currentTarget.classList.add(classes.active)
   }
 
@@ -79,7 +93,7 @@ const CarouselUI = () => {
       <div className={classes.visibleItem}>
         <div ref={itemList} style={{transform: `translateX(${currentLengthList}px)`}} className={classes.list}>
           {carousel.map((item, index) =>
-            <div key={index}>
+            <div data-number={index} key={index}>
               <Link to={item.linkUrl}>
                 <img src={item.imageSrc} alt={item.imageAlt}/>
               </Link>
