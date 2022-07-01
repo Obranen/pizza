@@ -1,6 +1,6 @@
 @import "src/utils/themes/variables.module";
 
-.slider {
+.carousel {
   height: 100%;
   width: 100%;
   display: flex;
@@ -43,8 +43,6 @@
   transition: all ease 0.5s;
   div {
     height: 100%;
-    min-width: 100%;
-    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

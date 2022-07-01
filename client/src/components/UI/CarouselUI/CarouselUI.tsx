@@ -13,6 +13,8 @@ interface ICarouselUI {
   autoplay?: IAutoplay
   navArrow?: boolean
   navCircle?: boolean
+  imagesOnWindow?: number
+  stopAtHover?: boolean
 }
 
 const CarouselUI: FC<ICarouselUI> =
@@ -22,12 +24,15 @@ const CarouselUI: FC<ICarouselUI> =
        start: false
      },
      navArrow = true,
-     navCircle = true
+     navCircle = true,
+     imagesOnWindow = 1,
+     stopAtHover = false
    }) => {
     const {carousel} = useSelectorHook(state => state.carouselReducer)
     const itemList = useRef<any>(null)
     const circleList = useRef<any>(null)
     const [currentLengthList, setCurrentLengthList] = useState<number>(0)
+    const [toggleStopAtHover, setToggleStopAtHover] = useState<boolean>(true)
 
     const $circleWithClassActive = () => {
       return circleList.current.querySelector(`.${classes.active}`)
@@ -37,8 +42,24 @@ const CarouselUI: FC<ICarouselUI> =
       return circleList.current.childNodes[0].classList.add(classes.active)
     }
 
+    const movedCursorOnCarouselHandler = () => {
+      if (stopAtHover) {
+        setToggleStopAtHover(false)
+      }
+    }
+
+    const leaveCursorOnCarouselHandler = () => {
+      if (stopAtHover) {
+        setToggleStopAtHover(true)
+      }
+    }
+
+    const numberOfPictures = (number: number) => {
+      return 100 / number
+    }
+
     const autoplayCarousel = () => {
-      if (autoplay.start) {
+      if (toggleStopAtHover) {
         const time = setTimeout(() => {
           arrowRightHandler()
         }, autoplay.time)
@@ -55,8 +76,10 @@ const CarouselUI: FC<ICarouselUI> =
     }, [])
 
     useEffect(() => {
-      autoplayCarousel()
-    }, [currentLengthList])
+      if (autoplay.start) {
+        autoplayCarousel()
+      }
+    }, [currentLengthList, toggleStopAtHover])
 
     const lengthCarousel = () => {
       const lengthItem = itemList.current.offsetWidth
@@ -122,12 +145,24 @@ const CarouselUI: FC<ICarouselUI> =
     }
 
     return (
-      <div className={classes.slider}>
+      <div
+        className={classes.carousel}
+        onMouseEnter={movedCursorOnCarouselHandler}
+        onMouseLeave={leaveCursorOnCarouselHandler}
+      >
         {navArrow ? <MdArrowBackIosNew className={classes.arrowLeft} onClick={arrowLeftHandler}/> : <></>}
         <div className={classes.visibleItem}>
-          <div ref={itemList} style={{transform: `translateX(${currentLengthList}px)`}} className={classes.list}>
+          <div
+            ref={itemList}
+            style={{transform: `translateX(${currentLengthList}px)`}}
+            className={classes.list}
+          >
             {carousel.map((item, index) =>
-              <div data-number={index} key={index}>
+              <div style=
+                     {{
+                       minWidth: `${numberOfPictures(imagesOnWindow)}%`,
+                       maxWidth: `${numberOfPictures(imagesOnWindow)}%`
+                     }} data-number={index} key={index}>
                 <Link to={item.linkUrl}>
                   <img src={item.imageSrc} alt={item.imageAlt}/>
                 </Link>

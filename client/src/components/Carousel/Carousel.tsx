@@ -4,7 +4,7 @@ import CarouselUI from '../UI/CarouselUI/CarouselUI';
 const Carousel = () => {
   return (
     <>
-      <CarouselUI/>
+      <CarouselUI autoplay={{time: 2000, start: true}}/>
     </>
   )
 }
