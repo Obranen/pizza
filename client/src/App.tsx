@@ -2,13 +2,13 @@ import React from 'react'
 import './App.module.scss'
 import Header from './components/Header/Header';
 import RootPage from './pages/RootPage/RootPage';
-import Carousel from './components/Carousel/Carousel';
+import CarouselOnMain from './components/CarouselOnMain/CarouselOnMain';
 
 function App() {
   return (
     <RootPage>
       <Header/>
-      <Carousel/>
+      <CarouselOnMain/>
     </RootPage>
   );
 }
