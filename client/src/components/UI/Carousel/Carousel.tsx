@@ -4,9 +4,9 @@ import CarouselList from './CarouselList/CarouselList';
 import CarouselArrowLeft from './CarouselArrowLeft/CarouselArrowLeft';
 import CarouselArrowRight from './CarouselArrowRight/CarouselArrowRight';
 import CarouselCircleNavList from './CarouselCircleNavList/CarouselCircleNavList';
-import {ICarousel, ICircleList, ICurrentLengthListState, IItemList} from './CarouselInterface';
+import {ICarousel, ICircleList, ICurrentLengthListState, IItemList, IToggleStopAtHoverState} from './CarouselInterface';
 
-export const Context = createContext({} as ICarousel & ICurrentLengthListState & IItemList & ICircleList)
+export const Context = createContext({} as ICarousel & ICurrentLengthListState & IToggleStopAtHoverState & IItemList & ICircleList)
 
 const Carousel: FC<ICarousel> =
   ({
@@ -41,15 +41,6 @@ const Carousel: FC<ICarousel> =
     }
 
     const autoplayCarousel = () => {
-      if (toggleStopAtHover) {
-        // const time = setTimeout(() => {
-        //   // autoplayA()
-        // }, autoplay.time)
-        // return () => {
-        //   clearTimeout(time);
-        // }
-        console.log(autoplay.time)
-      }
     }
 
     useEffect(() => {
@@ -67,9 +58,11 @@ const Carousel: FC<ICarousel> =
     return (
       <Context.Provider value={{
         imagesOnWindow,
+        autoplay,
         navCircle,
         circleList,
         itemList,
+        toggleStopAtHover,
         currentLengthList,
         setCurrentLengthList
       }}>

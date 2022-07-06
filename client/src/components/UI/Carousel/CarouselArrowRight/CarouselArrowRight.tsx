@@ -5,15 +5,18 @@ import {useSelectorHook} from '../../../../hooks/useSelectorHook';
 import {Context} from '../Carousel';
 
 interface ICarouselArrowRight {
-  autoplayCarousel?: any
+  autoplayCarousel?: (nextSlide: any) => void
 }
 
 const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
   const {carousel} = useSelectorHook(state => state.carouselReducer)
   const {
+    imagesOnWindow,
+    autoplay,
     circleList,
     itemList,
     navCircle,
+    toggleStopAtHover,
     currentLengthList,
     setCurrentLengthList
   } = useContext(Context)
@@ -34,9 +37,13 @@ const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
 
   useEffect(() => {
     const time = setTimeout(() => {
-      // autoplayA()
-      autoplayCarousel(arrowRightHandler())
-    }, 2000)
+      if (autoplay?.start) {
+        if (toggleStopAtHover) {
+          // @ts-ignore
+          autoplayCarousel(arrowRightHandler())
+        }
+      }
+    }, autoplay?.time)
     return () => {
       clearTimeout(time);
     }
@@ -44,14 +51,18 @@ const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
 
   const arrowRightHandler = () => {
     const lengthItem = itemList.current.offsetWidth
-    const totalLength = lengthItem * +(carousel.length)
+    // @ts-ignore
+    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow
     // @ts-ignore
     const currentLengthItem = +lengthItem - +currentLengthList
     if (currentLengthItem !== totalLength) {
+      // @ts-ignore
       setCurrentLengthList(-currentLengthItem)
     } else {
+      // @ts-ignore
       setCurrentLengthList(0)
     }
+
     if (navCircle) {
       styledCircleNavAtClickArrowRight()
     }

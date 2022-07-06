@@ -7,6 +7,7 @@ import {useSelectorHook} from '../../../../hooks/useSelectorHook';
 const CarouselArrowLeft = () => {
   const {carousel} = useSelectorHook(state => state.carouselReducer)
   const {
+    imagesOnWindow,
     circleList,
     itemList,
     navCircle,
@@ -30,13 +31,16 @@ const CarouselArrowLeft = () => {
 
   const arrowLeftHandler = () => {
     const lengthItem = itemList.current.offsetWidth
-    const totalLength = lengthItem * +(carousel.length)
+    // @ts-ignore
+    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow
     // @ts-ignore
     if (currentLengthList < 0) {
       const currentLengthItem = currentLengthList + lengthItem
+      // @ts-ignore
       setCurrentLengthList(currentLengthItem)
     } else {
       const currentLengthItem = +totalLength - +lengthItem
+      // @ts-ignore
       setCurrentLengthList(-currentLengthItem)
     }
     if (navCircle) {

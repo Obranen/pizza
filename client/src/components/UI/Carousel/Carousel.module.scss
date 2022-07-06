@@ -60,6 +60,7 @@
 
 .circle {
   border: 1px solid $primary-main;
+  box-shadow: 0 0 2px $primary-background;
   border-radius: 50%;
   margin-left: 10px;
   cursor: pointer;
@@ -67,10 +68,12 @@
   height: 20px;
   &:hover {
     border: 1px solid $secondary-main;
+    box-shadow: 0 0 2px $secondary-main;
   }
 }
 
 .active {
   background-color: $secondary-main;
   border: 1px solid $secondary-main;
+  box-shadow: 0 0 2px $secondary-main;
 }

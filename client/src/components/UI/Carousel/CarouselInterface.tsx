@@ -13,7 +13,11 @@ export interface ICarousel {
 
 export interface ICurrentLengthListState {
   currentLengthList?: number
-  setCurrentLengthList?: any
+  setCurrentLengthList?: (number: number) => void
+}
+
+export interface IToggleStopAtHoverState {
+  toggleStopAtHover: boolean
 }
 
 export interface IItemList {
