@@ -4,7 +4,7 @@ import Carousel from '../UI/Carousel/Carousel';
 const CarouselOnMain = () => {
   return (
     <>
-      <Carousel/>
+      <Carousel visible={false}/>
     </>
   )
 }

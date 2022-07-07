@@ -17,7 +17,8 @@ const Carousel: FC<ICarousel> =
      navArrow = true,
      navCircle = true,
      imagesOnWindow = 1,
-     stopAtHover = false
+     stopAtHover = false,
+     visible = true
    }) => {
     const itemList = useRef<any>(null)
     const circleList = useRef<any>(null)
@@ -66,30 +67,32 @@ const Carousel: FC<ICarousel> =
         currentLengthList,
         setCurrentLengthList
       }}>
-        <div
-          className={classes.carousel}
-          onMouseEnter={movedCursorOnCarouselHandler}
-          onMouseLeave={leaveCursorOnCarouselHandler}
-        >
-          {navArrow ?
-            <CarouselArrowLeft/>
-            : <></>}
-          <div className={classes.visibleItem}>
-            <div
-              ref={itemList}
-              style={{transform: `translateX(${currentLengthList}px)`}}
-              className={classes.list}
-            >
-              <CarouselList/>
+        {visible
+          ? <div
+            className={classes.carousel}
+            onMouseEnter={movedCursorOnCarouselHandler}
+            onMouseLeave={leaveCursorOnCarouselHandler}
+          >
+            {navArrow ?
+              <CarouselArrowLeft/>
+              : <></>}
+            <div className={classes.visibleItem}>
+              <div
+                ref={itemList}
+                style={{transform: `translateX(${currentLengthList}px)`}}
+                className={classes.list}
+              >
+                <CarouselList/>
+              </div>
             </div>
+            {navCircle ?
+              <div ref={circleList} className={classes.circleWrapper}>
+                <CarouselCircleNavList/>
+              </div>
+              : <></>}
+            {navArrow ? <CarouselArrowRight autoplayCarousel={autoplayCarousel}/> : <></>}
           </div>
-          {navCircle ?
-            <div ref={circleList} className={classes.circleWrapper}>
-              <CarouselCircleNavList/>
-            </div>
-            : <></>}
-          {navArrow ? <CarouselArrowRight autoplayCarousel={autoplayCarousel}/> : <></>}
-        </div>
+          : <></>}
       </Context.Provider>
     )
   }

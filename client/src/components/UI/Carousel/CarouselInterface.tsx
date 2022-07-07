@@ -9,6 +9,7 @@ export interface ICarousel {
   navCircle?: boolean
   imagesOnWindow?: number
   stopAtHover?: boolean
+  visible?: boolean
 }
 
 export interface ICurrentLengthListState {
