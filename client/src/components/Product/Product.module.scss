@@ -1,0 +1,75 @@
+@import "./src/utils/themes/variables.module";
+
+.product {
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-background;
+  transition: all ease .3s;
+  margin-top: 20px;
+  padding-bottom: 3px;
+  &:hover .titleLink {
+    color: $secondary-dark;
+  }
+  &:hover {
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba($primary-background, .4);
+  }
+}
+
+.imageLink {
+
+}
+
+.content {
+  margin: 16px;
+}
+
+.image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.titleLink {
+  font-family: $font2;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: $primary-background;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  transition: all ease .3s;
+  span {
+    display: inline-block;
+  }
+}
+
+.weight {
+  color: $primary-dark;
+  text-transform: lowercase;
+  font-family: $primary-font;
+  font-size: 17px;
+}
+
+.desc {
+  max-height:100px;
+  overflow:hidden;
+  margin-top: -20px;
+  &:before{
+    content:"";
+    display:block;
+    height:26px;
+    position:relative;
+    top:74px;
+    background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%)
+  }
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 8px;
+}

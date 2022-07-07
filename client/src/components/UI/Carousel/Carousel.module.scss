@@ -16,7 +16,7 @@
   z-index: 1;
   height: 100%;
   background-color: rgba($primary-background, .2);
-  width: 80px;
+  width: 5%;
   color: $primary-main;
   &:hover {
     cursor: pointer;
@@ -52,8 +52,7 @@
 
 .circleWrapper {
   position: absolute;
-  left: 50%;
-  bottom: 10px;
+  bottom: 3%;
   z-index: 1;
   display: flex;
 }

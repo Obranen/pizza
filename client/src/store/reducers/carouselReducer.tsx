@@ -18,18 +18,8 @@ const initialState: ICarouselState = {
       linkUrl: '/'
     },
     {
-      imageSrc: 'https://www.oceano.org/wp-content/uploads/2018/05/header-ecosysteme.jpg',
-      imageAlt: 'фотка4',
-      linkUrl: '/'
-    },
-    {
-      imageSrc: 'https://on.od.ua/wp-content/uploads/2019/07/1557505538204-contain-1920x600-Cropped.jpg',
-      imageAlt: 'фотка5',
-      linkUrl: '/'
-    },
-    {
       imageSrc: 'https://wallpapercave.com/wp/wp6004835.jpg',
-      imageAlt: 'фотка6',
+      imageAlt: 'фотка4',
       linkUrl: '/'
     }
   ],

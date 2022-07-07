@@ -1,8 +1,15 @@
 @import "./src/utils/themes/variables.module";
 
+.headerWrapper {
+  padding-bottom: 147px;
+}
+
 .header {
   background-color: $primary-background;
   color: $primary-main;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .rowRight {

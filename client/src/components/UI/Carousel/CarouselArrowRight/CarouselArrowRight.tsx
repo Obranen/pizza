@@ -37,11 +37,9 @@ const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
 
   useEffect(() => {
     const time = setTimeout(() => {
-      if (autoplay?.start) {
-        if (toggleStopAtHover) {
+      if (autoplay?.start && toggleStopAtHover) {
           // @ts-ignore
           autoplayCarousel(arrowRightHandler())
-        }
       }
     }, autoplay?.time)
     return () => {

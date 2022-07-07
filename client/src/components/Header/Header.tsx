@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 import NavBar from './NavBar/NavBar';
 import {Col, Grid, Row} from 'react-flexbox-grid';
 import classes from './Header.module.scss'
@@ -10,21 +10,23 @@ import Cart from './Cart/Cart';
 
 const Header = () => {
   return (
-    <div className={classes.header}>
-      <Grid fluid>
-        <Row>
-          <Contacts/>
-          <Logo/>
-          <Col sm={4}>
-            <div className={classes.rowRight}>
-              <Languages/>
-              <Login/>
-              <Cart/>
-            </div>
-          </Col>
-        </Row>
-        <NavBar/>
-      </Grid>
+    <div className={classes.headerWrapper}>
+      <div className={classes.header}>
+        <Grid fluid>
+          <Row>
+            <Contacts/>
+            <Logo/>
+            <Col sm={4}>
+              <div className={classes.rowRight}>
+                <Languages/>
+                <Login/>
+                <Cart/>
+              </div>
+            </Col>
+          </Row>
+          <NavBar/>
+        </Grid>
+      </div>
     </div>
   )
 }

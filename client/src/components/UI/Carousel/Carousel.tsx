@@ -51,7 +51,7 @@ const Carousel: FC<ICarousel> =
     }, [currentLengthList, toggleStopAtHover])
 
     useEffect(() => {
-      if (navCircle) {
+      if (navCircle && visible) {
         firstActiveCircleNav()
       }
     }, [])

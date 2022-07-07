@@ -1,0 +1,18 @@
+@import "./src/utils/themes/variables.module";
+
+.button {
+  border: 1px solid $secondary-dark;
+  color: $secondary-dark;
+  background-color: $primary-main;
+  border-radius: 10px;
+  padding: 2% 10%;
+  width: 100%;
+  text-transform: capitalize;
+  transition: all ease .3s;
+  &:hover {
+    cursor: pointer;
+    color: $secondary-main;
+    border: 1px solid $primary-background;
+    background-color: $primary-background;
+  }
+}
