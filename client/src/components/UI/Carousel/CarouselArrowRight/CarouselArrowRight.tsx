@@ -38,8 +38,7 @@ const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
   useEffect(() => {
     const time = setTimeout(() => {
       if (autoplay?.start && toggleStopAtHover) {
-          // @ts-ignore
-          autoplayCarousel(arrowRightHandler())
+          autoplayCarousel!(arrowRightHandler())
       }
     }, autoplay?.time)
     return () => {
@@ -49,16 +48,12 @@ const CarouselArrowRight: FC<ICarouselArrowRight> = ({autoplayCarousel}) => {
 
   const arrowRightHandler = () => {
     const lengthItem = itemList.current.offsetWidth
-    // @ts-ignore
-    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow
-    // @ts-ignore
-    const currentLengthItem = +lengthItem - +currentLengthList
+    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow!
+    const currentLengthItem = +lengthItem - +currentLengthList!
     if (currentLengthItem !== totalLength) {
-      // @ts-ignore
-      setCurrentLengthList(-currentLengthItem)
+      setCurrentLengthList!(-currentLengthItem)
     } else {
-      // @ts-ignore
-      setCurrentLengthList(0)
+      setCurrentLengthList!(0)
     }
 
     if (navCircle) {

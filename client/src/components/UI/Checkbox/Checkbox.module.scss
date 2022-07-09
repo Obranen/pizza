@@ -8,27 +8,33 @@
 }
 
 .checkbox {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .checkbox>input {
   display: none;
 }
 
-.checkbox>span {
+.additionalPrice {
+
+}
+
+.checkbox>.name {
   display: flex;
-  cursor: pointer;
   align-items: center;
+  cursor: pointer;
   color: $primary-background;
   transition: all ease .3s;
 }
 
-.checkbox>span::before {
+.checkbox>.name::before {
   content: '';
   width: 16px;
   height: 16px;
   text-align: center;
-  border: 1px solid $primary-dark;
+  border: 1px solid $primary-background;
   border-radius: 0.25em;
   margin-right: 5px;
   display: inline-block;
@@ -36,7 +42,7 @@
   transition: all ease .3s;
 }
 
-.checkbox>input:checked+span::before {
+.checkbox>input:checked+.name::before {
   content: '\2713';
   color: $primary-main;
   border-color: $primary-background;

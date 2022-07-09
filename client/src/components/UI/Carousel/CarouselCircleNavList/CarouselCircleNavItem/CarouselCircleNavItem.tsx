@@ -24,16 +24,14 @@ const CarouselCircleNavItem: FC<ICarouselCircleNavItem> = ({index}) => {
     const lengthItem = itemList.current.offsetWidth
     const numberCircle = event.currentTarget.getAttribute('data-number')
     const currentLengthItem = lengthItem * Number(numberCircle)
-    // @ts-ignore
-    setCurrentLengthList(-currentLengthItem)
+    setCurrentLengthList!(-currentLengthItem)
 
     $circleWithClassActive().classList.remove(classes.active)
     event.currentTarget.classList.add(classes.active)
   }
 
   const quantityCircles = () => {
-    // @ts-ignore
-    return carousel.length / imagesOnWindow
+    return carousel.length / imagesOnWindow!
   }
 
   return (

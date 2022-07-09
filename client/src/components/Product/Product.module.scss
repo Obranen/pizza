@@ -7,7 +7,7 @@
   transition: all ease .3s;
   margin-top: 20px;
   padding-bottom: 3px;
-  &:hover .titleLink {
+  &:hover .title a {
     color: $secondary-dark;
   }
   &:hover {
@@ -27,9 +27,11 @@
 .image {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  max-height: 285px;
+  width: 100%;
 }
 
-.titleLink {
+.title {
   font-family: $font2;
   font-size: 20px;
   font-weight: bold;
@@ -39,24 +41,33 @@
   text-align: center;
   display: flex;
   justify-content: space-around;
-  align-items: end;
+  align-items: flex-end;
   transition: all ease .3s;
+  a {
+    color: $primary-background;
+  }
   span {
     display: inline-block;
   }
 }
 
+.checkboxWrapper {
+  height: 100px;
+  width: 100%;
+}
+
 .weight {
-  color: $primary-dark;
+  color: $primary-background;
   text-transform: lowercase;
   font-family: $primary-font;
   font-size: 17px;
 }
 
 .desc {
-  max-height:100px;
+  height:100px;
   overflow:hidden;
   margin-top: -20px;
+  color: $primary-dark;
   &:before{
     content:"";
     display:block;
@@ -67,9 +78,17 @@
   }
 }
 
-.price {
+.priceWrapper {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 8px;
+}
+
+.price {
+  color: $primary-background;
+}
+
+.button {
+
 }

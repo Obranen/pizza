@@ -31,17 +31,13 @@ const CarouselArrowLeft = () => {
 
   const arrowLeftHandler = () => {
     const lengthItem = itemList.current.offsetWidth
-    // @ts-ignore
-    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow
-    // @ts-ignore
-    if (currentLengthList < 0) {
+    const totalLength = (lengthItem * +(carousel.length)) / imagesOnWindow!
+    if (currentLengthList! < 0) {
       const currentLengthItem = currentLengthList + lengthItem
-      // @ts-ignore
-      setCurrentLengthList(currentLengthItem)
+      setCurrentLengthList!(currentLengthItem)
     } else {
       const currentLengthItem = +totalLength - +lengthItem
-      // @ts-ignore
-      setCurrentLengthList(-currentLengthItem)
+      setCurrentLengthList!(-currentLengthItem)
     }
     if (navCircle) {
       styledCircleNavAtClickArrowLeft()
