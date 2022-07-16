@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC, memo, useEffect, useState} from 'react'
 import Checkbox from '../../UI/Checkbox/Checkbox';
 import classes from '../Product.module.scss';
 
@@ -7,7 +7,7 @@ interface ICheckboxProductItem {
 }
 
 const CheckboxProductItem: FC<ICheckboxProductItem> =
-  ({checkbox}) => {
+  memo(({checkbox}) => {
     const [increment, setIncrement] = useState<number>(0)
     const [decrement, setDecrement] = useState<number>(0)
     const [priceSum, setPriceSum] = useState<number>(0)
@@ -70,6 +70,6 @@ const CheckboxProductItem: FC<ICheckboxProductItem> =
         />
       </>
     )
-  }
+  })
 
 export default CheckboxProductItem

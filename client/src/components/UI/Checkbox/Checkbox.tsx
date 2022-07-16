@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, memo} from 'react'
 import classes from './Checkbox.module.scss'
 
 interface ICheckbox {
@@ -8,7 +8,7 @@ interface ICheckbox {
   onChange?: (event: any) => void
 }
 
-const Checkbox: FC<ICheckbox> = ({onChange, price, name, value}) => {
+const Checkbox: FC<ICheckbox> = memo(({onChange, price, name, value}) => {
   return (
     <div className={classes.wrapper}>
       <label className={classes.checkbox}>
@@ -18,6 +18,6 @@ const Checkbox: FC<ICheckbox> = ({onChange, price, name, value}) => {
       </label>
     </div>
   )
-}
+})
 
 export default Checkbox

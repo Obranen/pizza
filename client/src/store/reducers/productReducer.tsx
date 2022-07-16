@@ -1,8 +1,9 @@
-import {IProductState} from '../types/productTypes';
+import {IProductState, ProductActionTypes} from '../types/productTypes';
 
 const initialState: IProductState = {
   products: [
     {
+      id: 1,
       image: {
         href: '#',
         src: 'https://mafia.ua/storage/editor/fotos/480x0/karbonara-metrovaya_1566297127558.jpeg',
@@ -22,6 +23,7 @@ const initialState: IProductState = {
       price: 429
     },
     {
+      id: 2,
       image: {
         href: '#',
         src: 'https://mafia.ua/storage/editor/fotos/480x0/margarita_156706066239.jpeg',
@@ -41,6 +43,7 @@ const initialState: IProductState = {
       price: 149
     },
     {
+      id: 3,
       image: {
         href: '#',
         src: 'https://mafia.ua/storage/editor/fotos/480x0/pollo_1567060914824.jpeg',
@@ -60,6 +63,7 @@ const initialState: IProductState = {
       price: 219
     },
     {
+      id: 4,
       image: {
         href: '#',
         src: 'https://mafia.ua/storage/editor/fotos/480x0/gurmeo-metrovaya_1566296981221.jpeg',
@@ -90,15 +94,17 @@ const initialState: IProductState = {
       ],
       price: 439
     }
-  ]
+  ],
+  productsSort: []
 }
 
 export const productReducer = (state = initialState, action: any) : IProductState => {
   switch (action.type) {
-    // case NAME_CASE: return  {
-    // ...state,
-    // error: action.payload
-    // }
+    case ProductActionTypes.FETCH_USERS_SUCCESS:
+      return {
+        ...state,
+        productsSort: action.payload
+      }
     default:
       return state
   }

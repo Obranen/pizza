@@ -35,17 +35,17 @@ export const carouselReducer = (state = initialState, action: CarouselAction): I
     //     error: null,
     //     carousel: []
     //   }
-    case CarouselActionTypes.FETCH_USERS_SUCCESS:
-      return {
-        // Пример:
-        // ...state,
-        // users: state.users.concat(action.payload)
-        // users: [action.payload, ...state.users]
-        // users: [...state.users, action.payload]
-        loading: false,
-        error: null,
-        carousel: action.payload
-      }
+    // case CarouselActionTypes.FETCH_USERS_SUCCESS:
+    //   return {
+    //     // Пример:
+    //     // ...state,
+    //     // users: state.users.concat(action.payload)
+    //     // users: [action.payload, ...state.users]
+    //     // users: [...state.users, action.payload]
+    //     loading: false,
+    //     error: null,
+    //     carousel: action.payload
+    //   }
     // case CarouselActionTypes.FETCH_USERS_ERROR:
     //   return {
     //     loading: false,

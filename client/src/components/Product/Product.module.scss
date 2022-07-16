@@ -7,9 +7,6 @@
   transition: all ease .3s;
   margin-top: 20px;
   padding-bottom: 3px;
-  &:hover .title a {
-    color: $secondary-dark;
-  }
   &:hover {
     border-radius: 10px;
     box-shadow: 0 0 8px rgba($primary-background, .4);

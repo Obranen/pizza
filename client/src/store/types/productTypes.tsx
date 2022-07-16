@@ -1,20 +1,20 @@
-interface IImage {
-  href: string
-  src: string
-  alt: string
-}
-
-interface ITitle {
-  name: string
-  weight: number
-  href: string
-}
-
-interface ICheckbox {
-  name: string
-  value: string
-  price: number
-}
+// interface IImage {
+//   href: string
+//   src: string
+//   alt: string
+// }
+//
+// interface ITitle {
+//   name: string
+//   weight: number
+//   href: string
+// }
+//
+// interface ICheckbox {
+//   name: string
+//   value: string
+//   price: number
+// }
 
 // export interface IProductState {
 //   image?: IImage
@@ -25,5 +25,17 @@ interface ICheckbox {
 // }
 
 export interface IProductState {
-  products: any[]
+  products: any[],
+  productsSort: any[]
 }
+
+export enum ProductActionTypes {
+  FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+}
+
+interface IFetchProductSuccessAction {
+  type: ProductActionTypes.FETCH_USERS_SUCCESS
+  payload: any
+}
+
+export type ProductAction = IFetchProductSuccessAction

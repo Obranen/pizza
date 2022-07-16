@@ -15,8 +15,8 @@ const Product = () => {
   return (
     <Grid fluid>
       <Row>
-        {products.map((product, indexProduct) =>
-          <Col key={indexProduct} sm={3}>
+        {products.map((product) =>
+          <Col key={product.id} sm={3}>
             <div className={classes.product}>
               <a
                 className={classes.imageLink}
@@ -46,9 +46,9 @@ const Product = () => {
                   )}
                 </div>
                 <div className={classes.priceWrapper}>
-                  <span data-id={indexProduct} className={classes.price}>
+                  <span data-id={product.id} className={classes.price}>
                     {product.price}
-                  </span>грн
+                  </span> грн
                 </div>
                 <Button className={classes.button} onClick={clickHandler}>Заказать</Button>
               </div>
