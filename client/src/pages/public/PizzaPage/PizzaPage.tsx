@@ -1,6 +1,6 @@
 import React from 'react'
-import Product from '../../../components/Product/Product';
-import Filters from '../../../components/Filters/Filters';
+import Product from '../../../components/Product/Product'
+import Filters from '../../../components/Filters/Filters'
 
 const PizzaPage = () => {
   return (

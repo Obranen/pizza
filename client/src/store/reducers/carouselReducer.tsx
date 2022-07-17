@@ -29,12 +29,6 @@ const initialState: ICarouselState = {
 
 export const carouselReducer = (state = initialState, action: CarouselAction): ICarouselState => {
   switch (action.type) {
-    // case CarouselActionTypes.FETCH_USERS:
-    //   return {
-    //     loading: true,
-    //     error: null,
-    //     carousel: []
-    //   }
     // case CarouselActionTypes.FETCH_USERS_SUCCESS:
     //   return {
     //     // Пример:
@@ -45,12 +39,6 @@ export const carouselReducer = (state = initialState, action: CarouselAction): I
     //     loading: false,
     //     error: null,
     //     carousel: action.payload
-    //   }
-    // case CarouselActionTypes.FETCH_USERS_ERROR:
-    //   return {
-    //     loading: false,
-    //     error: action.payload,
-    //     carousel: []
     //   }
     default:
       return state

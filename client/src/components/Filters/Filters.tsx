@@ -1,11 +1,11 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import SortProducts from './SortProducts/SortProducts'
 import {Grid, Row, Col} from 'react-flexbox-grid'
-import classes from './Filters.module.scss';
-import FindProduct from './FindProduct/FindProduct';
-import {useSelectorHook} from '../../hooks/useSelectorHook';
-import {useFilters} from '../../hooks/useFilters';
-import {useDispatchHook} from '../../hooks/useDispatchHook';
+import classes from './Filters.module.scss'
+import FindProduct from './FindProduct/FindProduct'
+import {useSelectorHook} from '../../hooks/useSelectorHook'
+import {useFilters} from '../../hooks/useFilters'
+import {useDispatchHook} from '../../hooks/useDispatchHook'
 
 const Filters = () => {
   const {products} = useSelectorHook(state => state.productReducer)

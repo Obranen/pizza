@@ -1,4 +1,4 @@
-import {IProductState, ProductActionTypes} from '../types/productTypes';
+import {IProductState, ProductActionTypes} from '../types/productTypes'
 
 const initialState: IProductState = {
   products: [
@@ -95,20 +95,29 @@ const initialState: IProductState = {
       price: 439
     }
   ],
-  productsFilters: []
+  productsFilters: [],
+  loading: false,
+  error: null
 }
 
 export const productReducer = (state = initialState, action: any): IProductState => {
   switch (action.type) {
-    case ProductActionTypes.FETCH_PRODUCTS_SUCCESS:
+    case ProductActionTypes.FETCH_PRODUCTS:
       return {
         ...state,
-        products: action.payload
+        loading: true
       }
     case ProductActionTypes.FETCH_PRODUCTS_FILTERS_SUCCESS:
       return {
         ...state,
+        loading: false,
         productsFilters: action.payload
+      }
+    case ProductActionTypes.FETCH_PRODUCTS_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       }
     default:
       return state

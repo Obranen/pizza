@@ -1,4 +1,4 @@
-import React, {FC, useMemo} from 'react'
+import React, {FC, useMemo, useState} from 'react'
 import Select from '../../UI/Select/Select';
 
 interface ISortProducts {

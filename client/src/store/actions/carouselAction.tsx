@@ -1,15 +1,15 @@
 import {Dispatch} from 'redux';
-import {ProductAction, ProductActionTypes} from '../types/productTypes';
+import {CarouselAction, CarouselActionTypes} from '../types/carouselTypes';
 // import axios from 'axios';
 
 export const fetchCarousel = (data: any) => {
-  return async  (dispatch: Dispatch<ProductAction>) => {
+  return async  (dispatch: Dispatch<CarouselAction>) => {
     try {
-      // dispatch({type: CarouselActionTypes.FETCH_USERS})
+      // dispatch({type: CarouselActionTypes.FETCH_CAROUSEL})
       // const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-      // dispatch({type: ProductActionTypes.FETCH_PRODUCTS_FIND_SUCCESS, payload: data})
+      // dispatch({type: CarouselActionTypes.FETCH_CAROUSEL_SUCCESS, payload: data})
     } catch (e) {
-      // dispatch({type: CarouselActionTypes.FETCH_USERS_ERROR, payload: 'Произошла ошибка при загрузке пользователей'})
+      // dispatch({type: CarouselActionTypes.FETCH_CAROUSEL_ERROR, payload: 'Произошла ошибка при загрузке картинки'})
     }
   }
 }
