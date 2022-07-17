@@ -18,7 +18,7 @@ const initialState: IProductState = {
       checkbox: [{
         name: 'Сырный бортик к метровой пицце',
         value: 'CheeseSide',
-        price: 59,
+        price: 59
       }],
       price: 429
     },
@@ -38,7 +38,7 @@ const initialState: IProductState = {
       checkbox: [{
         name: 'Сырный бортик к средней пицце',
         value: 'CheeseSide',
-        price: 29,
+        price: 29
       }],
       price: 149
     },
@@ -58,7 +58,7 @@ const initialState: IProductState = {
       checkbox: [{
         name: 'Соус барбекю',
         value: 'barbecueSauce',
-        price: 15,
+        price: 15
       }],
       price: 219
     },
@@ -79,7 +79,7 @@ const initialState: IProductState = {
         {
           name: 'Соус сырный',
           value: 'cheeseSauce',
-          price: 25,
+          price: 25
         },
         {
           name: 'Соус барбекю',
@@ -95,15 +95,20 @@ const initialState: IProductState = {
       price: 439
     }
   ],
-  productsSort: []
+  productsFilters: []
 }
 
-export const productReducer = (state = initialState, action: any) : IProductState => {
+export const productReducer = (state = initialState, action: any): IProductState => {
   switch (action.type) {
-    case ProductActionTypes.FETCH_USERS_SUCCESS:
+    case ProductActionTypes.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        productsSort: action.payload
+        products: action.payload
+      }
+    case ProductActionTypes.FETCH_PRODUCTS_FILTERS_SUCCESS:
+      return {
+        ...state,
+        productsFilters: action.payload
       }
     default:
       return state

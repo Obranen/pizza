@@ -25,17 +25,23 @@
 // }
 
 export interface IProductState {
-  products: any[],
-  productsSort: any[]
+  products: any[]
+  productsFilters: any[]
 }
 
 export enum ProductActionTypes {
-  FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+  FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
+  FETCH_PRODUCTS_FILTERS_SUCCESS = 'FETCH_PRODUCTS_FILTERS_SUCCESS',
 }
 
 interface IFetchProductSuccessAction {
-  type: ProductActionTypes.FETCH_USERS_SUCCESS
+  type: ProductActionTypes.FETCH_PRODUCTS_SUCCESS
   payload: any
 }
 
-export type ProductAction = IFetchProductSuccessAction
+interface IFetchProductFiltersSuccessAction {
+  type: ProductActionTypes.FETCH_PRODUCTS_FILTERS_SUCCESS
+  payload: any
+}
+
+export type ProductAction = IFetchProductSuccessAction | IFetchProductFiltersSuccessAction

@@ -1,0 +1,9 @@
+@import "src/utils/themes/variables.module";
+
+.input {
+  width: 70%;
+  border: 1px solid $primary-background;
+  border-radius: 6px;
+  padding: 10px 16px;
+  display: block;
+}
