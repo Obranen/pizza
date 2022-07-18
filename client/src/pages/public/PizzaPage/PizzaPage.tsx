@@ -1,12 +1,14 @@
 import React from 'react'
 import Product from '../../../components/Product/Product'
-import Filters from '../../../components/Filters/Filters'
+import FiltersProducts from '../../../components/Product/FiltersProducts/FiltersProducts'
+import PaginationProducts from '../../../components/Product/PaginationProducts/PaginationProducts';
 
 const PizzaPage = () => {
   return (
     <>
-      <Filters/>
+      <FiltersProducts/>
       <Product/>
+      <PaginationProducts/>
     </>
   )
 }

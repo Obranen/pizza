@@ -1,5 +1,5 @@
 import React, {FC, useMemo, useState} from 'react'
-import Select from '../../UI/Select/Select';
+import Select from '../../../UI/Select/Select';
 
 interface ISortProducts {
   getSortValue: (value: string) => void

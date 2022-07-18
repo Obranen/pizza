@@ -16,6 +16,7 @@ const initialState: IProductState = {
       },
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolor dolore, eligendi, ex facere in ipsa labore magni modi nostrum odit omnis pariatur repudiandae sint voluptatibus! Eos iusto numquam rem.',
       checkbox: [{
+        id: 1,
         name: 'Сырный бортик к метровой пицце',
         value: 'CheeseSide',
         price: 59
@@ -36,6 +37,7 @@ const initialState: IProductState = {
       },
       desc: 'Соус маринара, помидоры, сыр моцарелла, соус песто Сирный соус в ПОДАРОК!',
       checkbox: [{
+        id: 1,
         name: 'Сырный бортик к средней пицце',
         value: 'CheeseSide',
         price: 29
@@ -56,6 +58,7 @@ const initialState: IProductState = {
       },
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolor dolore, eligendi, ex facere in ipsa labore magni modi nostrum odit omnis pariatur repudiandae sint voluptatibus! Eos iusto numquam rem.',
       checkbox: [{
+        id: 1,
         name: 'Соус барбекю',
         value: 'barbecueSauce',
         price: 15
@@ -77,25 +80,192 @@ const initialState: IProductState = {
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolor dolore, eligendi, ex facere in ipsa labore magni modi nostrum odit omnis pariatur repudiandae sint voluptatibus! Eos iusto numquam rem.',
       checkbox: [
         {
+          id: 1,
           name: 'Соус сырный',
           value: 'cheeseSauce',
           price: 25
         },
         {
+          id: 2,
           name: 'Соус барбекю',
           value: 'barbecueSauce',
           price: 15
         },
         {
+          id: 3,
           name: 'Сырный бортик к средней пицце',
           value: 'CheeseSide',
           price: 29
         }
       ],
       price: 439
-    }
+    },
+    {
+      id: 5,
+      image: {
+        href: '#',
+        src: 'https://mafia.ua/storage/editor/fotos/480x0/milano_1654329100503.jpeg',
+        alt: 'pizza5'
+      },
+      title: {
+        name: 'Милано',
+        weight: 530,
+        href: '#'
+      },
+      desc: 'Салями милано, сыр моцарелла, томаты черри, руккола, соус маринара',
+      checkbox: [
+        {
+          id: 1,
+          name: 'Соус сырный',
+          value: 'cheeseSauce',
+          price: 25
+        },
+        {
+          id: 2,
+          name: 'Соус барбекю',
+          value: 'barbecueSauce',
+          price: 15
+        },
+        {
+          id: 3,
+          name: 'Сырный бортик к средней пицце',
+          value: 'CheeseSide',
+          price: 29
+        }
+      ],
+      price: 179
+    },
+    {
+      id: 6,
+      image: {
+        href: '#',
+        src: 'https://mafia.ua/storage/editor/fotos/480x0/chetyre-syra_1567059967719.jpeg',
+        alt: 'pizza6'
+      },
+      title: {
+        name: 'Четыре сыра',
+        weight: 430,
+        href: '#'
+      },
+      desc: 'Cыр дор блю, сыр чеддер, сыр пармезан, сыр моцарелла, груша, грецкий орех, сливочный',
+      checkbox: [
+        {
+          id: 1,
+          name: 'Соус барбекю',
+          value: 'barbecueSauce',
+          price: 15
+        },
+        {
+          id: 2,
+          name: 'Сырный бортик к средней пицце',
+          value: 'CheeseSide',
+          price: 29
+        }
+      ],
+      price: 197
+    },
+    {
+      id: 7,
+      image: {
+        href: '#',
+        src: 'https://mafia.ua/storage/editor/fotos/480x0/polo-metrovaya_1566297194328.jpeg',
+        alt: 'pizza7'
+      },
+      title: {
+        name: 'Поло метровая',
+        weight: 1350,
+        href: '#'
+      },
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolor dolore, eligendi, ex facere in ipsa labore magni modi nostrum odit omnis pariatur repudiandae sint voluptatibus! Eos iusto numquam rem.',
+      checkbox: [
+        {
+          id: 1,
+          name: 'Соус сырный',
+          value: 'cheeseSauce',
+          price: 25
+        },
+        {
+          id: 2,
+          name: 'Соус барбекю',
+          value: 'barbecueSauce',
+          price: 15
+        },
+        {
+          id: 3,
+          name: 'Сырный бортик к средней пицце',
+          value: 'CheeseSide',
+          price: 29
+        }
+      ],
+      price: 429
+    },
+    {
+      id: 8,
+      image: {
+        href: '#',
+        src: 'https://mafia.ua/storage/editor/fotos/480x0/karbonara_1654274567805.jpeg',
+        alt: 'pizza8'
+      },
+      title: {
+        name: 'Карбонара',
+        weight: 500,
+        href: '#'
+      },
+      desc: 'Сыр моцарелла, ветчина, грудинка, шампиньоны, пармезан, томаты черри и трюфельное масло Сирный соус в ПОДАРОК!',
+      checkbox: [
+        {
+          id: 1,
+          name: 'Соус сырный',
+          value: 'cheeseSauce',
+          price: 25
+        },
+        {
+          id: 2,
+          name: 'Соус барбекю',
+          value: 'barbecueSauce',
+          price: 15
+        },
+        {
+          id: 3,
+          name: 'Сырный бортик к средней пицце',
+          value: 'CheeseSide',
+          price: 29
+        }
+      ],
+      price: 239
+    },
+    {
+      id: 9,
+      image: {
+        href: '#',
+        src: 'https://mafia.ua/storage/editor/fotos/480x0/gurmeo_1567060279780.jpeg',
+        alt: 'pizza9'
+      },
+      title: {
+        name: 'Гурмео',
+        weight: 580,
+        href: '#'
+      },
+      desc: 'Филе куриное sous-vide, ветчина, колбаски охотничьи, пеперони, сыр моцарелла,',
+      checkbox: [
+        {
+          id: 1,
+          name: 'Соус сырный',
+          value: 'cheeseSauce',
+          price: 25
+        },
+        {
+          id: 2,
+          name: 'Сырный бортик к средней пицце',
+          value: 'CheeseSide',
+          price: 29
+        }
+      ],
+      price: 229
+    },
   ],
   productsFilters: [],
+  quantityShowedProducts: 4,
   loading: false,
   error: null
 }
@@ -118,6 +288,11 @@ export const productReducer = (state = initialState, action: any): IProductState
         ...state,
         loading: false,
         error: action.payload
+      }
+    case ProductActionTypes.SET_PRODUCTS_PAGE:
+      return {
+        ...state,
+        quantityShowedProducts: action.payload
       }
     default:
       return state

@@ -37,7 +37,7 @@ export const useSort = (array: any[], sortValue: string) => {
   }, [sortValue, array])
 }
 
-export const useFilters = (array: any, sortValue: string, findValue: string) => {
+export const useFiltersHook = (array: any, sortValue: string, findValue: string) => {
   const sortedArray = useSort(array, sortValue)
 
   return useMemo(() => {

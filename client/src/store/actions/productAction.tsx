@@ -11,3 +11,7 @@ export const fetchProductFilters = (data: any) => {
     }
   }
 }
+
+export const setPage = (page: number): ProductAction => {
+  return {type: ProductActionTypes.SET_PRODUCTS_PAGE, payload: page}
+}

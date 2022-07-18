@@ -11,6 +11,7 @@ interface ITitle {
 }
 
 interface ICheckbox {
+  id: number
   name: string
   value: string
   price: number
@@ -28,6 +29,7 @@ export interface IProducts {
 export interface IProductState {
   products: IProducts[]
   productsFilters: IProducts[]
+  quantityShowedProducts: number
   loading: boolean
   error: null | string
 }
@@ -37,6 +39,7 @@ export enum ProductActionTypes {
   FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
   FETCH_PRODUCTS_FILTERS_SUCCESS = 'FETCH_PRODUCTS_FILTERS_SUCCESS',
   FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR',
+  SET_PRODUCTS_PAGE = 'SET_PRODUCTS_PAGE',
 }
 
 interface IFetchProductAction {
@@ -58,4 +61,9 @@ interface IFetchProductErrorAction {
   payload: string
 }
 
-export type ProductAction = IFetchProductSuccessAction | IFetchProductFiltersSuccessAction | IFetchProductAction | IFetchProductErrorAction
+interface ISetProductPage {
+  type: ProductActionTypes.SET_PRODUCTS_PAGE
+  payload: number
+}
+
+export type ProductAction = IFetchProductSuccessAction | IFetchProductFiltersSuccessAction | IFetchProductAction | IFetchProductErrorAction | ISetProductPage

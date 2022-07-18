@@ -11,7 +11,7 @@ const Button: FC<IButton> = ({children, ...props}) => {
 
   return (
     <>
-      <button {...props} className={[classes.button, props.className].join(' ')}>{children}</button>
+      <button {...props} className={[props.className, classes.button].join(' ')}>{children}</button>
     </>
   )
 }

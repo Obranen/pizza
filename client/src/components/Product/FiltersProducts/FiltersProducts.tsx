@@ -1,13 +1,13 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import SortProducts from './SortProducts/SortProducts'
 import {Grid, Row, Col} from 'react-flexbox-grid'
-import classes from './Filters.module.scss'
-import FindProduct from './FindProduct/FindProduct'
-import {useSelectorHook} from '../../hooks/useSelectorHook'
-import {useFilters} from '../../hooks/useFilters'
-import {useDispatchHook} from '../../hooks/useDispatchHook'
+import classes from './FiltersProducts.module.scss'
+import FindProducts from './FindProduct/FindProducts'
+import {useSelectorHook} from '../../../hooks/useSelectorHook'
+import {useFiltersHook} from '../../../hooks/useFiltersHook'
+import {useDispatchHook} from '../../../hooks/useDispatchHook'
 
-const Filters = () => {
+const FiltersProducts = () => {
   const {products} = useSelectorHook(state => state.productReducer)
   const {fetchProductFilters} = useDispatchHook()
   const [sortValue, setSortValue] = useState('')
@@ -21,11 +21,11 @@ const Filters = () => {
     return products.concat().sort(sortTwoLevelLarger('title', 'name'))
   }, [sortValue, findValue])
 
-  const sortedAndFined = useFilters(productsClone, sortValue, findValue)
+  const sortedAndFinedArray = useFiltersHook(productsClone, sortValue, findValue)
 
   useEffect(() => {
-    fetchProductFilters(sortedAndFined)
-  }, [sortedAndFined])
+    fetchProductFilters(sortedAndFinedArray)
+  }, [sortedAndFinedArray])
 
   const getSortValue = (value: string) => {
     setSortValue(value)
@@ -42,7 +42,7 @@ const Filters = () => {
           <h2 className={classes.title}>Пицца</h2>
         </Col>
         <Col sm={4}>
-          <FindProduct getFindValue={getFindValue}/>
+          <FindProducts getFindValue={getFindValue}/>
         </Col>
         <Col sm={4}>
           <SortProducts getSortValue={getSortValue}/>
@@ -52,4 +52,4 @@ const Filters = () => {
   )
 }
 
-export default Filters
+export default FiltersProducts
