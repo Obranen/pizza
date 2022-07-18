@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from 'react'
+import React, {FC, useEffect, useRef} from 'react'
 import classes from './PaginationProductsItem.module.scss'
 import {useSelectorHook} from '../../../../hooks/useSelectorHook';
 import {useDispatchHook} from '../../../../hooks/useDispatchHook';
@@ -13,7 +13,6 @@ const PaginationProductsItem: FC<IPaginationProductsItem> =
     const {quantityShowedProducts} = useSelectorHook(state => state.productReducer)
     const {setPage} = useDispatchHook()
     const pageRef = useRef(null)
-    const [pageOld, setPageOld] = useState<number>(0)
 
     useEffect(() => {
       if (page === 1) {
@@ -29,19 +28,7 @@ const PaginationProductsItem: FC<IPaginationProductsItem> =
       $target.parentElement?.querySelector(`.${classes.active}`)?.classList.remove(`${classes.active}`)
       $target.classList.add(`${classes.active}`)
 
-      // console.log(pageCurrent, 'pageCurrent')
-      // console.log(pageOld, 'pageOld')
-      // if (pageCurrent >= pageOld) {
-      //   console.log('+')
-      //   setPage(quantityShowedProducts * pageCurrent)
-      //   setPageOld(pageCurrent)
-      // }
-      // if (pageCurrent <= pageOld) {
-      //   console.log('-')
-      //   setPage(quantityShowedProducts / pageCurrent)
-      //   setPageOld(pageCurrent)
-      // }
-      // console.log(quantityShowedProducts)
+      setPage(quantityShowedProducts * pageCurrent)
     }
 
     return (

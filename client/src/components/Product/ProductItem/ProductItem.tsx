@@ -13,11 +13,11 @@ interface IProductItem {
 
 const ProductItem: FC<IProductItem> =
   ({product, index}) => {
-    const {quantityShowedProducts} = useSelectorHook(state => state.productReducer)
+    const {totalPagesLoaded} = useSelectorHook(state => state.productReducer)
 
     return (
       <Col key={product.id} sm={3}>
-        {index < quantityShowedProducts ?
+        {index < totalPagesLoaded ?
           <div className={classes.product}>
             <a
               className={classes.imageLink}

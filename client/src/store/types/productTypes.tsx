@@ -30,6 +30,7 @@ export interface IProductState {
   products: IProducts[]
   productsFilters: IProducts[]
   quantityShowedProducts: number
+  totalPagesLoaded: number
   loading: boolean
   error: null | string
 }

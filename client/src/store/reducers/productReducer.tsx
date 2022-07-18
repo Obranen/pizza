@@ -265,6 +265,7 @@ const initialState: IProductState = {
     },
   ],
   productsFilters: [],
+  totalPagesLoaded: 4,
   quantityShowedProducts: 4,
   loading: false,
   error: null
@@ -292,7 +293,7 @@ export const productReducer = (state = initialState, action: any): IProductState
     case ProductActionTypes.SET_PRODUCTS_PAGE:
       return {
         ...state,
-        quantityShowedProducts: action.payload
+        totalPagesLoaded: action.payload
       }
     default:
       return state
