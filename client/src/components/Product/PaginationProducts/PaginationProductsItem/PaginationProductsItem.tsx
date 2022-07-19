@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef} from 'react'
+import React, {FC, useEffect, useRef, useState} from 'react'
 import classes from './PaginationProductsItem.module.scss'
 import {useSelectorHook} from '../../../../hooks/useSelectorHook';
 import {useDispatchHook} from '../../../../hooks/useDispatchHook';
@@ -10,12 +10,13 @@ interface IPaginationProductsItem {
 
 const PaginationProductsItem: FC<IPaginationProductsItem> =
   ({page, className}) => {
-    const {quantityShowedProducts} = useSelectorHook(state => state.productReducer)
+    const {quantityShowedProducts, totalPagesLoaded} = useSelectorHook(state => state.productReducer)
     const {setPage} = useDispatchHook()
     const pageRef = useRef(null)
 
     useEffect(() => {
-      if (page === 1) {
+      const pageCurrent = totalPagesLoaded / quantityShowedProducts
+      if (page === pageCurrent) {
         // @ts-ignore
         pageRef.current.classList.add(`${classes.active}`)
       }

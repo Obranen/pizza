@@ -23,6 +23,17 @@ const initialState: ICarouselState = {
       linkUrl: '/'
     }
   ],
+  settings: {
+    autoplay: {
+      time: 2000,
+      start: false
+    },
+    navArrow: true,
+    navCircle: true,
+    imagesOnWindow: 1,
+    stopAtHover: false,
+    visible: true
+  },
   loading: false,
   error: null
 }

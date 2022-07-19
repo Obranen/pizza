@@ -1,4 +1,13 @@
 import {IProductState, ProductActionTypes} from '../types/productTypes'
+import karbonaraMetrovaya from '../../utils/images/product/pizza/karbonara-metrovaya_1566297127558.jpeg'
+import margarita from '../../utils/images/product/pizza/margarita_156706066239.jpeg'
+import pollo from '../../utils/images/product/pizza/pollo_1567060914824.jpeg'
+import gurmeoMetrovaya from '../../utils/images/product/pizza/gurmeo-metrovaya_1566296981221.jpeg'
+import milano from '../../utils/images/product/pizza/milano_1654329100503.jpeg'
+import chetyreSyra from '../../utils/images/product/pizza/chetyre-syra_1567059967719.jpeg'
+import poloMetrovaya from '../../utils/images/product/pizza/polo-metrovaya_1566297194328.jpeg'
+import karbonara from '../../utils/images/product/pizza/karbonara_1654274567805.jpeg'
+import gurmeo from '../../utils/images/product/pizza/gurmeo_1567060279780.jpeg'
 
 const initialState: IProductState = {
   products: [
@@ -6,7 +15,8 @@ const initialState: IProductState = {
       id: 1,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/karbonara-metrovaya_1566297127558.jpeg',
+        // src: 'https://mafia.ua/storage/editor/fotos/480x0/karbonara-metrovaya_1566297127558.jpeg',
+        src: karbonaraMetrovaya,
         alt: 'pizza1'
       },
       title: {
@@ -27,7 +37,7 @@ const initialState: IProductState = {
       id: 2,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/margarita_156706066239.jpeg',
+        src: margarita,
         alt: 'pizza2'
       },
       title: {
@@ -48,7 +58,7 @@ const initialState: IProductState = {
       id: 3,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/pollo_1567060914824.jpeg',
+        src: pollo,
         alt: 'pizza3'
       },
       title: {
@@ -69,7 +79,7 @@ const initialState: IProductState = {
       id: 4,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/gurmeo-metrovaya_1566296981221.jpeg',
+        src: gurmeoMetrovaya,
         alt: 'pizza4'
       },
       title: {
@@ -104,7 +114,7 @@ const initialState: IProductState = {
       id: 5,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/milano_1654329100503.jpeg',
+        src: milano,
         alt: 'pizza5'
       },
       title: {
@@ -139,7 +149,7 @@ const initialState: IProductState = {
       id: 6,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/chetyre-syra_1567059967719.jpeg',
+        src: chetyreSyra,
         alt: 'pizza6'
       },
       title: {
@@ -168,7 +178,7 @@ const initialState: IProductState = {
       id: 7,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/polo-metrovaya_1566297194328.jpeg',
+        src: poloMetrovaya,
         alt: 'pizza7'
       },
       title: {
@@ -203,7 +213,7 @@ const initialState: IProductState = {
       id: 8,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/karbonara_1654274567805.jpeg',
+        src: karbonara,
         alt: 'pizza8'
       },
       title: {
@@ -238,7 +248,7 @@ const initialState: IProductState = {
       id: 9,
       image: {
         href: '#',
-        src: 'https://mafia.ua/storage/editor/fotos/480x0/gurmeo_1567060279780.jpeg',
+        src: gurmeo,
         alt: 'pizza9'
       },
       title: {

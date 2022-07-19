@@ -4,8 +4,23 @@ interface ICarousel {
   linkUrl: string
 }
 
+interface IAutoplay {
+  time: number,
+  start: boolean
+}
+
+interface ISettings {
+  autoplay?: IAutoplay,
+  navArrow?: boolean,
+  navCircle?: boolean,
+  imagesOnWindow?: number,
+  stopAtHover?: boolean,
+  visible?: boolean
+}
+
 export interface ICarouselState {
   carousel: ICarousel[]
+  settings: ISettings
   loading: boolean
   error: null | string
 }
